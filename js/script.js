@@ -10,8 +10,10 @@ Barbara Ramos	Graphic Designer		        barbara-ramos-graphic-designer.jpg
 **MILESTONE 0:**
 Creare l’array di oggetti con le informazioni fornite.
 **MILESTONE 1:**
-Stampare su console le informazioni di nome, ruolo e la stringa della foto**MILESTONE 2:**
-Stampare le stesse informazioni su DOM sotto forma di stringhe**MILESTONE 3:**
+Stampare su console le informazioni di nome, ruolo e la stringa della foto
+**MILESTONE 2:**
+Stampare le stesse informazioni su DOM sotto forma di stringhe
+**MILESTONE 3:**
 Stampare delle card formattate contenete immagini e testo (La grafica fornita è solo un esempio ma sentitevi liberi di “graficare” come preferite)**BONUS:**
 Aggiungere degli aggettivi (più di uno) che identifichino ogni persona e stamparli nella card
 */
@@ -50,5 +52,10 @@ const team = [
   }
 ]
 
-console.log(team);
+//console.log(team);
+const result = document.querySelector('.result');
 
+for(let membro of team) {
+  console.log(membro);
+  result.innerHTML += `<li>${membro.nome} - ${membro.ruolo} - ${membro.foto}</li>`;
+}
