@@ -56,6 +56,11 @@ const team = [
   }
 ]
 
+team[0].aggettivo = '"dinamico, puntiglioso"';
+team[1].aggettivo = '"puntuale, flessibile, coerente"';
+team[3].aggettivo = '"precisa"';
+team[4].aggettivo = '"amichevole, attivo"';
+
 //console.log(team);
 
 //milestones 1-2
@@ -64,18 +69,28 @@ const team = [
 
 //milestone 2 - creo una card dinamica raccogliendo i dati dell'array e ciclando con un for of
 for(let membro of team) {
-  console.log(membro);
+  //console.log(membro);
   //result.innerHTML += `<li>${membro.nome} - ${membro.ruolo} - ${membro.foto}</li>`;
+
+  //milestone 3 creo variabile da usare per eventuale aggettivo, e se undefined il campo deve rimanere vuoto
+  let adjective = membro.aggettivo;
+  if (adjective === undefined) {
+    adjective = '';
+    //document.querySelector('#adj').classList.add('.hide');
+  } 
   
-  let card = `<div class="col-4 d-flex justify-content-center text-center">
+  //creo la card dinamica
+  let card = `<div class="col-4 d-flex justify-content-center text-center zoom">
   <div class="card m-4" style="width: 18rem;">
-  <img src="${membro.foto}" class="card-img-top" alt="Foto">
+  <img class="" src="${membro.foto}" class="card-img-top" alt="Foto">
   
   <ul class="list-group list-group-flush">
   <li class="list-group-item"><h5>${membro.nome}</h5></li>
   <li class="list-group-item">${membro.ruolo}</li>
+  <li id="adj" class="list-group-item green">${adjective}</li>
   </ul>
   </div>
   </div>`
+  
   row.innerHTML += card;
 }

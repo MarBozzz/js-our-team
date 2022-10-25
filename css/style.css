@@ -1,0 +1,23 @@
+.container {
+  background-color: beige;
+}
+
+.zoom {
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.green {
+  color: green;
+  font-size: bold;
+}
+
+.hide {
+  display: none;
+}
+
