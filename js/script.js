@@ -14,10 +14,14 @@ Stampare su console le informazioni di nome, ruolo e la stringa della foto
 **MILESTONE 2:**
 Stampare le stesse informazioni su DOM sotto forma di stringhe
 **MILESTONE 3:**
-Stampare delle card formattate contenete immagini e testo (La grafica fornita è solo un esempio ma sentitevi liberi di “graficare” come preferite)**BONUS:**
+Stampare delle card formattate contenete immagini e testo (La grafica fornita è solo un esempio ma sentitevi liberi di “graficare” come preferite)
+**BONUS:**
 Aggiungere degli aggettivi (più di uno) che identifichino ogni persona e stamparli nella card
 */
 
+
+
+const row = document.querySelector(".row");
 //creo l'array del team con proprietà nome, ruolo e url foto
 const team = [
   {
@@ -48,14 +52,30 @@ const team = [
   {
     nome : 'Barbara Ramos',
     ruolo : 'Graphic Designer',
-    foto : 'barbara-ramos-graphic-designer',
+    foto : 'barbara-ramos-graphic-designer.jpg',
   }
 ]
 
 //console.log(team);
-const result = document.querySelector('.result');
 
+//milestones 1-2
+/*const result = document.querySelector('.result');
+*/
+
+//milestone 2 - creo una card dinamica raccogliendo i dati dell'array e ciclando con un for of
 for(let membro of team) {
   console.log(membro);
-  result.innerHTML += `<li>${membro.nome} - ${membro.ruolo} - ${membro.foto}</li>`;
+  //result.innerHTML += `<li>${membro.nome} - ${membro.ruolo} - ${membro.foto}</li>`;
+  
+  let card = `<div class="col-4 d-flex justify-content-center text-center">
+  <div class="card m-4" style="width: 18rem;">
+  <img src="${membro.foto}" class="card-img-top" alt="Foto">
+  
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item"><h5>${membro.nome}</h5></li>
+  <li class="list-group-item">${membro.ruolo}</li>
+  </ul>
+  </div>
+  </div>`
+  row.innerHTML += card;
 }
